@@ -683,5 +683,7 @@ function friendlyAuthError(code) {
 }
 
 // ── Init ──────────────────────────────────────────────────────
-updateOnboarding();
-initSplash();
+window.addEventListener('DOMContentLoaded', () => {
+  updateOnboarding();
+  initSplash();
+});
