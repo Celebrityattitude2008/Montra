@@ -258,9 +258,17 @@ onAuthStateChanged(auth, async (firebaseUser) => {
   }
 });
 
-// Mark splash as done after it fades
-setTimeout(() => { splashDone = true; }, 2000);
+// Mark splash as done AFTER splash fully finishes
+setTimeout(() => {
+  splashDone = true;
 
+  // fallback navigation in case auth listener already fired
+  if (state.user) {
+    goToDashboard();
+  } else {
+    showScreen('login');
+  }
+}, 3000);
 // ── Firestore: profile ────────────────────────────────────────
 async function loadProfile(uid) {
   const snap = await getDoc(doc(db, 'users', uid));
