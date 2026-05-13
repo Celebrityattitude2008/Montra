@@ -1,263 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#E8F1FF" />
-    <title>Montra Finance</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#060d1c" />
+  <title>Montra Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
 
-  <body>
-    <div class="app-shell">
-      <div class="screen screen-onboarding active">
-        <div class="onboarding-topbar">
-          <img src="logo.jpg" alt="Montra logo" class="app-logo" />
-          <button class="theme-toggle" id="theme-toggle">Light</button>
+  <!-- ========== SPLASH SCREEN ========== -->
+  <div id="screen-splash" class="screen screen-splash active">
+    <div class="splash-orb splash-orb-1"></div>
+    <div class="splash-orb splash-orb-2"></div>
+    <div class="splash-orb splash-orb-3"></div>
+    <div class="splash-center">
+      <div class="splash-logo-ring">
+        <img src="logo.jpg" alt="Montra" class="splash-logo" />
+      </div>
+      <h1 class="splash-brand">Montra</h1>
+      <p class="splash-tagline">Finance for every Nigerian student</p>
+      <div class="splash-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== LOGIN SCREEN ========== -->
+  <div id="screen-login" class="screen screen-login">
+    <div class="login-bg-orb login-orb-1"></div>
+    <div class="login-bg-orb login-orb-2"></div>
+    <div class="login-shell">
+      <div class="login-brand">
+        <img src="logo.jpg" alt="Montra" class="login-logo" />
+        <div>
+          <h1 class="login-title">Welcome back</h1>
+          <p class="login-sub">Sign in to your student wallet</p>
         </div>
+      </div>
+      <div class="glass login-card">
+        <form id="login-form" class="login-form">
+          <label>
+            <span class="field-label">Email address</span>
+            <input id="login-email" type="email" placeholder="you@university.edu.ng" autocomplete="email" />
+          </label>
+          <label>
+            <span class="field-label">Password</span>
+            <input id="login-password" type="password" placeholder="••••••••" autocomplete="current-password" />
+          </label>
+          <button type="submit" class="primary-button">Sign in →</button>
+        </form>
+        <div class="auth-divider"><span>or</span></div>
+        <button id="go-to-register" class="secondary-button full-w">Create new account</button>
+      </div>
+      <p class="login-footer">Trusted by students across Nigeria 🇳🇬</p>
+    </div>
+  </div>
 
-        <div class="onboarding-card glass">
-          <span class="step-pill">Step 1 of 3</span>
-          <img class="onboarding-icon" src="https://cdn-icons-png.flaticon.com/512/3615/3615529.png" alt="Wallet icon" />
-          <h1 class="hero-title">Track your expenses without the stress</h1>
-          <p class="hero-copy">Swipe through simple student-first budgeting tools designed for irregular campus spending.</p>
+  <!-- ========== APP SHELL ========== -->
+  <div class="app-shell">
 
-          <div class="feature-grid">
-            <div class="feature-card">
-              <h2>Fast logging</h2>
-              <p>Record food, transport, data and tuition costs in one tap.</p>
-            </div>
-            <div class="feature-card">
-              <h2>Smart budgets</h2>
-              <p>See exactly how far you can spend before the month ends.</p>
-            </div>
-            <div class="feature-card">
-              <h2>Study-friendly</h2>
-              <p>Designed for Nigerian students with irregular allowance schedules.</p>
-            </div>
-          </div>
+    <!-- ONBOARDING -->
+    <div id="screen-onboarding" class="screen screen-onboarding">
+      <div class="onboarding-topbar">
+        <img src="logo.jpg" alt="Montra" class="app-logo" />
+        <button class="pill-btn" id="theme-toggle">☀️</button>
+      </div>
 
-          <div class="actions">
-            <button id="skip-onboarding" class="secondary-button">Skip</button>
-            <button id="next-onboarding" class="primary-button">Next</button>
-          </div>
-        </div>
+      <div class="onboarding-card glass">
+        <span class="step-pill" id="step-pill">Step 1 of 3</span>
+        <div class="onboarding-illustration" id="onboarding-illustration">💰</div>
+        <h1 class="hero-title" id="onboarding-title">Track every naira without the stress</h1>
+        <p class="hero-copy" id="onboarding-copy">Log food, transport, data and school costs in seconds. Know exactly where your money goes.</p>
 
         <div class="pager">
           <span class="dot active"></span>
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-      </div>
 
-      <div class="screen screen-registration hidden">
-        <div class="registration-shell glass">
-          <div class="registration-header">
-            <span class="section-label">Welcome to Montra</span>
-            <h1>Create your student wallet</h1>
-            <p class="registration-copy">Finish sign up in less than 30 seconds with your university details.</p>
-          </div>
-
-          <form id="registration-form" class="registration-form">
-            <label>
-              Full name
-              <input id="name-input" type="text" placeholder="Amina Yusuf" required />
-            </label>
-
-            <label>
-              Email address
-              <input id="email-input" type="email" placeholder="amina@university.edu.ng" required />
-            </label>
-
-            <label>
-              University
-              <input id="university-input" type="text" placeholder="Search your university" autocomplete="off" required />
-              <ul id="university-suggestions" class="suggestions" role="listbox"></ul>
-            </label>
-
-            <label>
-              Monthly budget
-              <input id="budget-input" type="number" inputmode="numeric" placeholder="50000" required />
-            </label>
-
-            <button type="submit" class="primary-button">Create account</button>
-          </form>
+        <div class="onboarding-actions">
+          <button id="skip-onboarding" class="secondary-button">Skip</button>
+          <button id="next-onboarding" class="primary-button flex-1">Next →</button>
         </div>
       </div>
+    </div>
 
-      <div class="screen screen-dashboard hidden">
-        <section id="dashboard" class="tab-panel active">
-          <header class="dashboard-header glass">
-            <div>
-              <span class="section-label">Student wallet</span>
-              <h1>Montra dashboard</h1>
-            </div>
-            <button id="open-modal" class="primary-button">Add transaction</button>
-          </header>
+    <!-- REGISTRATION -->
+    <div id="screen-registration" class="screen screen-registration">
+      <div class="reg-topbar">
+        <button id="back-to-login" class="back-btn">← Back</button>
+      </div>
+      <div class="registration-shell glass">
+        <span class="section-label">New account</span>
+        <h1 class="reg-title">Create your student wallet</h1>
+        <p class="reg-copy">Free forever. Set up in under 30 seconds.</p>
 
-          <section class="dashboard-summary glass">
-            <div>
-              <span class="section-label">Balance</span>
-              <p class="metric-value" id="balance-value">₦0</p>
-              <p class="metric-label">Available funds</p>
-            </div>
-            <div>
-              <span class="section-label">Spent</span>
-              <p class="metric-value" id="spent-value">₦0</p>
-              <p class="metric-label">This month</p>
-            </div>
-            <div>
-              <span class="section-label">Remaining</span>
-              <p class="metric-value" id="remaining-value">₦0</p>
-              <p class="metric-label">Until payday</p>
-            </div>
-          </section>
+        <form id="registration-form" class="registration-form">
+          <label>
+            <span class="field-label">Full name</span>
+            <input id="name-input" type="text" placeholder="Amina Yusuf" autocomplete="name" required />
+          </label>
+          <label>
+            <span class="field-label">Email address</span>
+            <input id="email-input" type="email" placeholder="amina@university.edu.ng" autocomplete="email" required />
+          </label>
+          <label style="position:relative">
+            <span class="field-label">University</span>
+            <input id="university-input" type="text" placeholder="Search your university..." autocomplete="off" required />
+            <ul id="university-suggestions" class="suggestions" role="listbox"></ul>
+          </label>
+          <label>
+            <span class="field-label">Monthly budget (₦)</span>
+            <input id="budget-input" type="number" inputmode="numeric" placeholder="e.g. 50000" required />
+          </label>
+          <button type="submit" class="primary-button">Create account 🚀</button>
+        </form>
+      </div>
+    </div>
 
-          <section class="section-card glass">
-            <div class="section-header">
-              <div>
-                <span class="section-label">Spending breakdown</span>
-                <h2>Category overview</h2>
-              </div>
-              <img class="section-icon" src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Chart icon" />
-            </div>
+    <!-- DASHBOARD -->
+    <div id="screen-dashboard" class="screen screen-dashboard">
 
-            <div class="breakdown-list" id="breakdown-list"></div>
-          </section>
-        </section>
-
-        <section class="glass card section-card tab-panel hidden" id="budget">
-        <div class="section-header">
+      <!-- HOME TAB -->
+      <section id="dashboard" class="tab-panel active">
+        <header class="dash-header">
           <div>
-            <span class="section-label">Budget tracker</span>
-            <h2>Spending targets</h2>
+            <p class="greeting-time" id="greeting-time">Good morning</p>
+            <h1 class="greeting-name" id="greeting-name">Student 👋</h1>
           </div>
-          <img class="section-icon" src="https://cdn-icons-png.flaticon.com/512/1865/1865080.png" alt="Budget icon" />
+          <button id="open-modal" class="add-btn" aria-label="Add transaction">＋</button>
+        </header>
+
+        <div class="balance-card glass">
+          <div class="balance-top">
+            <span class="balance-label">Total Balance</span>
+            <span class="balance-badge">This Month</span>
+          </div>
+          <p class="balance-amount" id="balance-value">₦0</p>
+          <div class="balance-split">
+            <div class="balance-stat">
+              <span class="bstat-label">💸 Spent</span>
+              <span class="bstat-val danger" id="spent-value">₦0</span>
+            </div>
+            <div class="balance-divider"></div>
+            <div class="balance-stat">
+              <span class="bstat-label">✅ Remaining</span>
+              <span class="bstat-val safe" id="remaining-value">₦0</span>
+            </div>
+          </div>
         </div>
 
+        <div class="section-card glass">
+          <div class="section-hd">
+            <h2>Spending breakdown</h2>
+            <span class="hd-icon">📊</span>
+          </div>
+          <div class="breakdown-list" id="breakdown-list"></div>
+        </div>
+      </section>
+
+      <!-- BUDGET TAB -->
+      <section id="budget" class="tab-panel section-card glass">
+        <div class="section-hd">
+          <h2>Spending targets</h2>
+          <span class="hd-icon">🎯</span>
+        </div>
         <div class="budget-list" id="budget-list"></div>
       </section>
 
-      <section class="glass card section-card tab-panel hidden" id="history">
-        <div class="section-header">
-          <div>
-            <span class="section-label">Transaction history</span>
-            <h2>Recent activity</h2>
-          </div>
-          <img class="section-icon" src="https://cdn-icons-png.flaticon.com/512/4289/4289541.png" alt="History icon" />
+      <!-- HISTORY TAB -->
+      <section id="history" class="tab-panel section-card glass">
+        <div class="section-hd">
+          <h2>Recent activity</h2>
+          <span class="hd-icon">🕐</span>
         </div>
-
         <div class="history-controls">
-          <input id="history-search" type="search" placeholder="Search transactions" />
+          <input id="history-search" type="search" placeholder="🔍  Search transactions..." />
           <div class="filter-chips">
             <button type="button" class="chip active" data-filter="All">All</button>
-            <button type="button" class="chip" data-filter="Food">Food</button>
-            <button type="button" class="chip" data-filter="Transport">Transport</button>
-            <button type="button" class="chip" data-filter="Data">Data</button>
-            <button type="button" class="chip" data-filter="School">School</button>
-            <button type="button" class="chip" data-filter="Misc">Misc</button>
+            <button type="button" class="chip" data-filter="Food">🍔 Food</button>
+            <button type="button" class="chip" data-filter="Transport">🚌 Ride</button>
+            <button type="button" class="chip" data-filter="Data">📶 Data</button>
+            <button type="button" class="chip" data-filter="School">📚 School</button>
+            <button type="button" class="chip" data-filter="Misc">📦 Misc</button>
           </div>
         </div>
-
         <div class="transaction-list" id="history-list"></div>
       </section>
 
-      <section class="glass card section-card tab-panel hidden" id="profile">
-        <div class="section-header">
-          <div>
-            <span class="section-label">Profile</span>
-            <h2>Student account</h2>
+      <!-- PROFILE TAB -->
+      <section id="profile" class="tab-panel section-card glass">
+        <div class="profile-hero">
+          <div class="avatar-ring">
+            <div class="avatar-inner" id="avatar-letter">S</div>
           </div>
-          <img class="section-icon" src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Profile icon" />
+          <h3 class="profile-name" id="profile-name">Student Name</h3>
+          <span class="profile-email" id="profile-email">student@university.edu.ng</span>
+          <span class="uni-chip" id="profile-university">🎓 University</span>
         </div>
 
-        <div class="profile-summary glass">
-          <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png" alt="Student avatar" />
-          <div>
-            <h3 id="profile-name">Student Name</h3>
-            <span id="profile-email">student@university.edu.ng</span>
-          </div>
+        <div class="profile-menu">
+          <button class="menu-row glass" type="button">
+            <span class="menu-icon">🔔</span>
+            <span class="menu-label">Notifications</span>
+            <span class="menu-arrow">›</span>
+          </button>
+          <button class="menu-row glass" type="button">
+            <span class="menu-icon">⚙️</span>
+            <span class="menu-label">Settings</span>
+            <span class="menu-arrow">›</span>
+          </button>
+          <button class="menu-row glass" type="button">
+            <span class="menu-icon">🔒</span>
+            <span class="menu-label">Privacy &amp; Security</span>
+            <span class="menu-arrow">›</span>
+          </button>
+          <button class="menu-row glass destructive" id="logout-btn" type="button">
+            <span class="menu-icon">🚪</span>
+            <span class="menu-label">Log out</span>
+            <span class="menu-arrow">›</span>
+          </button>
         </div>
 
-        <div class="profile-actions">
-          <button class="action-row glass" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828412.png" alt="Notifications" />
-            Notifications
-          </button>
-          <button class="action-row glass" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/992/992703.png" alt="Settings" />
-            Settings
-          </button>
-          <button class="action-row glass destructive" type="button">
-            <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="Logout" />
-            Log out
-          </button>
-        </div>
-
-        <footer class="profile-note glass">
-          <span>Version 1.0.0</span>
-          <span>Designed for Nigerian university students</span>
-        </footer>
+        <p class="profile-footer">Montra v1.0 · Made for Nigerian students 🇳🇬</p>
       </section>
 
-      <button id="fab" class="fab" aria-label="Add expense">+</button>
+      <!-- FAB -->
+      <button id="fab" class="fab" aria-label="Add expense">＋</button>
 
-      <nav class="bottom-nav glass">
-        <button class="nav-button active" data-target="dashboard">
-          <img src="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" alt="Home" />
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav glass" role="navigation">
+        <button class="nav-btn active" data-target="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Home</span>
         </button>
-        <button class="nav-button" data-target="budget">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828767.png" alt="Budget" />
+        <button class="nav-btn" data-target="budget">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           <span>Budget</span>
         </button>
-        <button class="nav-button" data-target="history">
-          <img src="https://cdn-icons-png.flaticon.com/512/786/786431.png" alt="History" />
+        <button class="nav-btn" data-target="history">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span>History</span>
         </button>
-        <button class="nav-button" data-target="profile">
-          <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Profile" />
+        <button class="nav-btn" data-target="profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span>Profile</span>
         </button>
       </nav>
     </div>
 
-    <div class="modal hidden" id="transaction-modal">
-      <div class="modal-backdrop"></div>
-      <div class="modal-card glass">
-        <div class="modal-header">
-          <div>
-            <span class="section-label">Quick add</span>
-            <h2>Add expense</h2>
-          </div>
-          <button id="close-modal" class="icon-button" aria-label="Close modal">✕</button>
+  </div><!-- /.app-shell -->
+
+  <!-- ========== TRANSACTION MODAL ========== -->
+  <div class="modal hidden" id="transaction-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card glass">
+      <div class="modal-hd">
+        <div>
+          <p class="modal-sub">Quick add</p>
+          <h2 class="modal-title">Add expense</h2>
         </div>
-
-        <form id="transaction-form" class="modal-form">
-          <label>
-            Amount
-            <input id="transaction-amount" name="amount" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="0" required />
-          </label>
-
-          <div class="category-chips" role="group" aria-label="Choose category">
-            <button type="button" class="chip active" data-category="Food">Food</button>
-            <button type="button" class="chip" data-category="Transport">Transport</button>
-            <button type="button" class="chip" data-category="Data">Data</button>
-            <button type="button" class="chip" data-category="School">School</button>
-            <button type="button" class="chip" data-category="Misc">Misc</button>
-          </div>
-
-          <label>
-            Description
-            <input id="transaction-description" name="description" type="text" placeholder="What did you buy?" required />
-          </label>
-
-          <button type="submit" class="primary-button">Save expense</button>
-        </form>
+        <button id="close-modal" class="close-btn" aria-label="Close">✕</button>
       </div>
+      <form id="transaction-form" class="modal-form">
+        <label>
+          <span class="field-label">Amount (₦)</span>
+          <input id="transaction-amount" name="amount" type="number" inputmode="numeric" placeholder="0" required />
+        </label>
+        <div>
+          <span class="field-label">Category</span>
+          <div class="category-chips" role="group" aria-label="Category">
+            <button type="button" class="chip active" data-category="Food">🍔 Food</button>
+            <button type="button" class="chip" data-category="Transport">🚌 Ride</button>
+            <button type="button" class="chip" data-category="Data">📶 Data</button>
+            <button type="button" class="chip" data-category="School">📚 School</button>
+            <button type="button" class="chip" data-category="Misc">📦 Misc</button>
+          </div>
+        </div>
+        <label>
+          <span class="field-label">Description</span>
+          <input id="transaction-description" name="description" type="text" placeholder="What did you spend on?" required />
+        </label>
+        <button type="submit" class="primary-button">Save expense ✓</button>
+      </form>
     </div>
+  </div>
 
-    <div id="toast" class="toast hidden"></div>
-    <script src="script.js"></script>
-  </body>
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js?v=3"></script>
+</body>
 </html>
