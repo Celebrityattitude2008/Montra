@@ -259,7 +259,7 @@ onAuthStateChanged(auth, async (firebaseUser) => {
 });
 
 // Mark splash as done after it fades
-setTimeout(() => { splashDone = true; }, 3000);
+setTimeout(() => { splashDone = true; }, 2000);
 
 // ── Firestore: profile ────────────────────────────────────────
 async function loadProfile(uid) {
